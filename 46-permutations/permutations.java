@@ -1,27 +1,30 @@
 class Solution {
-    public void rec(int[] nums,List<Integer> ds,List<List<Integer>> ans,boolean[] freq){
-        int n=nums.length;
+    public void rec(int[] arr,boolean[] freq,List<Integer> ds,List<List<Integer>> ans){
+        int n=arr.length;
         if(ds.size()==n){
             ans.add(new ArrayList<>(ds));
         }
         for(int i=0;i<n;i++){
-            if(!freq[i]){
+            if(!freq[i]) {
                 freq[i]=true;
-                ds.add(nums[i]);
-                rec(nums,ds,ans,freq);
+                ds.add(arr[i]);
+                rec(arr,freq,ds,ans);
                 ds.remove(ds.size()-1);
                 freq[i]=false;
-               
-
             }
+            
+            
+
         }
     }
-    public List<List<Integer>> permute(int[] nums) {
+    public List<List<Integer>> permute(int[] arr) {
         List<List<Integer>> ans=new ArrayList<>();
         List<Integer> ds=new ArrayList<>();
-        boolean[] freq=new boolean[nums.length];
-        rec(nums,ds,ans,freq);
+        int n=arr.length;
+        boolean[] freq=new boolean[n];
+        rec(arr,freq,ds,ans);
         return ans;
+
         
     }
 }
