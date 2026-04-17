@@ -28,8 +28,8 @@ class MyQueue {
           while(st1.size()>1){
             st2.push(st1.pop());
         }
-        int x=st1.pop();
-        st1.add(x);
+        int x=st1.peek();
+       // st1.add(x);
        
          while(st2.size()>0){
             st1.push(st2.pop());
