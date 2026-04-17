@@ -18,7 +18,7 @@ class MyStack {
     
    public int pop() {
     size--;
-    return q.remove();  //  removes + returns top element
+    return q.remove(); 
 }
     
     public int top() {
@@ -26,7 +26,6 @@ class MyStack {
         return x;
         
     }
-    
     public boolean empty() {
         if(size==0) return true;
         else return false;
