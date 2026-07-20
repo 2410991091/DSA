@@ -3,12 +3,13 @@ class Solution {
 
         int n = nums.length;
 
-        // Maximum Kadane
         int max = nums[0];
         int sum = 0;
         int total = 0;
 
+        // Maximum Kadane
         for (int i = 0; i < n; i++) {
+
             total += nums[i];
 
             sum += nums[i];
@@ -19,19 +20,18 @@ class Solution {
         }
 
         // Minimum Kadane
-        int min = nums[0];
-        int prevsum = 0;
+        int minsum = 0;
+        int min = Integer.MAX_VALUE;
 
         for (int i = 0; i < n; i++) {
 
-            prevsum += nums[i];
-            min = Math.min(min, prevsum);
+            minsum += nums[i];
+            min = Math.min(min, minsum);
 
-            if (prevsum > 0)
-                prevsum = 0;
+            if (minsum > 0)      // <-- opposite condition
+                minsum = 0;
         }
 
-        // All elements are negative
         if (max < 0)
             return max;
 
