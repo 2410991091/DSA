@@ -9,7 +9,7 @@ class Solution {
                 count++;
                 i++;
 
-                if(count>=9){
+                if(count==9){
                     break;
                 }
              
