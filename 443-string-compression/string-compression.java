@@ -1,32 +1,23 @@
 class Solution {
     public int compress(char[] chars) {
-
         int n = chars.length;
-        int i = 0;
         int index = 0;
 
-        while (i < n) {
-
+        for (int i = 0; i < n; i++) {
             char ch = chars[i];
-            int count = 0;
+            int c = 1;
 
-            // Count consecutive same characters
-            while (i < n && chars[i] == ch) {
-                count++;
+            while (i < n - 1 && ch == chars[i + 1]) {
+                c++;
                 i++;
             }
 
-            // Write the character
-            chars[index] = ch;
-            index++;
+            chars[index++] = ch;
 
-            // Write the count if greater than 1
-            if (count > 1) {
-                String str = String.valueOf(count);
-
-                for (int j = 0; j < str.length(); j++) {
-                    chars[index] = str.charAt(j);
-                    index++;
+            if (c > 1) {
+                String s = String.valueOf(c);
+                for (char digit : s.toCharArray()) {
+                    chars[index++] = digit;
                 }
             }
         }
