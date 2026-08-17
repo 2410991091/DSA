@@ -1,25 +1,39 @@
 class Solution {
-    public String countAndSay(int n) {
-        String prev="1";
-        if(n==1){
-            return prev;
-        }
-        for(int i=2;i<=n;i++){
-            StringBuilder sb=new StringBuilder();
-            int k=0;
-            while(k<prev.length()){
-                char ch=prev.charAt(k);
-                int count=0;
-                while(k<prev.length() && prev.charAt(k)==ch){
-                    count++;
-                    k++;
-                }
-                sb.append(count);
-                sb.append(ch);
+
+    public String count(String ans) {
+
+        String res = "";
+        int count = 1;
+
+        for (int i = 1; i < ans.length(); i++) {
+
+            if (ans.charAt(i) == ans.charAt(i - 1)) {
+                count++;
+            } 
+            else {
+                res += count;
+                res += ans.charAt(i - 1);
+                count = 1;
             }
-            prev=sb.toString();
         }
-        return prev;
-        
+
+        // last character/group
+        res += count;
+        res += ans.charAt(ans.length() - 1);
+
+        return res;
+    }
+
+    public String countAndSay(int n) {
+
+        String ans = "1";
+
+        for (int i = 1; i < n; i++) {
+
+            ans = count(ans);
+
+        }
+
+        return ans;
     }
 }
