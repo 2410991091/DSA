@@ -9,11 +9,11 @@ class Solution {
         List<Boolean> ans=new ArrayList<>();
         for(int i=0;i<candies.length;i++){
             candies[i]=candies[i]+extraCandies;
-            if(candies[i]<max){
-                ans.add(false);
+            if(candies[i]>=max){
+                ans.add(true);
             }
 else{
-    ans.add(true);
+    ans.add(false);
 }
           
         }
