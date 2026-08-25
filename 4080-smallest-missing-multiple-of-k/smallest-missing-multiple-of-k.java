@@ -1,8 +1,6 @@
 class Solution {
     public int missingMultiple(int[] nums, int k) {
-
         for (int i = 1; ; i++) {
-
             int a = k * i;
             boolean found = false;
 
@@ -19,6 +17,6 @@ class Solution {
             }
         }
 
-        
+    
     }
 }
