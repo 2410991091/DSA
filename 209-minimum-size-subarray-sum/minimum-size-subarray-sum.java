@@ -7,7 +7,7 @@ class Solution {
         int sum=0;
         while(right<n){
             sum+=nums[right];
-            while(sum>=target){
+             while(sum>=target){
                 int l=right-left+1;
                 len=Math.min(len,l);
                 sum-=nums[left];
