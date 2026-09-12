@@ -1,35 +1,26 @@
 class Solution {
     public String frequencySort(String s) {
-
-        int[] freq = new int[128];
-        int n = s.length();
-
-        // Count frequency
-        for (int i = 0; i < n; i++) {
-            char ch = s.charAt(i);
-            freq[ch]++;
+        int n=s.length();
+        HashMap<Character,Integer> map=new HashMap<>();
+        for(int i=0;i<n;i++){
+            char ch=s.charAt(i);
+            map.put(ch,map.getOrDefault(ch,0)+1);
         }
+        String ans="";
+        PriorityQueue<Character> pq=new PriorityQueue<>((a,b)->map.get(b)-map.get(a));
+        for(char ch:map.keySet()){
+            pq.add(ch);
+        }
+    
+         while(!pq.isEmpty()){ 
+            char ch=pq.poll();
 
-        String ans = "";
-
-        // Start from highest frequency
-        for (int i = n; i >= 1; i--) {
-
-            // Check all ASCII characters
-            for (int j = 0; j < 128; j++) {
-
-                if (freq[j] == i) {
-
-                    char ch = (char) j;
-
-                    // Add character i times
-                    for (int k = 0; k < i; k++) {
-                        ans += ch;
-                    }
-                }
+            for(int i=0;i<map.get(ch);i++){
+                ans+=ch;
             }
         }
-
-        return ans;
+        
+return ans;
+        
     }
 }
