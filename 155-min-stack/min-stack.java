@@ -18,7 +18,7 @@ class MinStack {
     public void pop() {
         int x = st1.pop();
 
-        if (st2.peek()==(x)) {
+        if (st2.peek()==x) {
             st2.pop();
         }
     }
