@@ -11,7 +11,6 @@ class Solution {
                 return new int[]{map.get(rem),i};
             }
         }
-        return new int[]{1,2,3};
-    
+        return new int[]{1,2,3};   
     }
 }
