@@ -6,7 +6,7 @@ class Solution {
         for(int i=1;i<pairs.length;i++){
             if(pairs[i][0]>end){
                 count++;
-                 end = pairs[i][1];
+                end=pairs[i][1];
                 
             }
             
