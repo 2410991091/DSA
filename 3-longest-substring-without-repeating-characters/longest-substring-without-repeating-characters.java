@@ -8,6 +8,7 @@ class Solution {
         while(right<n){
             char ch=s.charAt(right);
             map.put(ch,map.getOrDefault(ch,0)+1);
+
             while(map.get(ch)>1){
                 map.put(s.charAt(left),map.get(s.charAt(left))-1);
                 left++;
@@ -16,7 +17,7 @@ class Solution {
             right++;
 
         }
-     return len;   
+        return len;
         
     }
 }
